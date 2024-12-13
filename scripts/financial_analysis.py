@@ -88,3 +88,15 @@ def analysisClosingPriceWithDate(stock_data_aapl,stock_data_amzn,stock_data_goog
     axs[1,2].set_xlabel('Date')
 
     plt.show()
+
+
+
+
+def calculateTechnicalIndicator(stock_data):
+    stock_data['SMA'] = tl.SMA(stock_data['Close'], timeperiod=20)
+    stock_data['RSI'] = tl.RSI(stock_data['Close'], timeperiod=14)
+    stock_data['EMA'] = tl.EMA(stock_data['Close'], timeperiod=20)
+
+    macd_signal, macd, _ = tl.MACD(stock_data['Close'])
+    stock_data['MACD'] =macd
+    stock_data['MACD_Signal']=macd_signal
