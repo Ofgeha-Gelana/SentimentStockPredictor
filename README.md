@@ -12,6 +12,9 @@ This project aims to analyze financial news data and its correlation with stock 
 1. Clean and preprocess the news data to remove noise, inconsistencies, and irrelevant information.
 2. Load stock price data into a Pandas DataFrame.
 
+### Plot publishing times
+[publishing time](https://raw.githubusercontent.com/Ofgeha-Gelana/SentimentStockPredictor/refs/heads/task-2/src/output2.png)
+
 ### Sentiment Analysis:
 1. Conduct sentiment analysis on news headlines using **TextBlob**.
 2. Calculate sentiment scores for each article.
