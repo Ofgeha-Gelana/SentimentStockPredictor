@@ -38,3 +38,15 @@ def checkMissingValueOfHistoricalDataset(stock_data_aapl,stock_data_amzn,stock_d
                             stock_data_tsla.isnull().sum()],
                             axis=0)
     combined_df.head()
+    
+
+def calculateDescriptiveStatisticsOfHistoricalData(stock_data_aapl,stock_data_amzn,stock_data_goog,stock_data_meta,stock_data_msft,stock_data_nvda,stock_data_tsla):
+    aapl_stats = stock_data_aapl['Close'].describe().to_frame('AAPL')
+    goog_stats = stock_data_goog['Close'].describe().to_frame('GOOG')
+    amzn_stats = stock_data_amzn['Close'].describe().to_frame('AMZN')
+    msft_stats = stock_data_msft['Close'].describe().to_frame('MSFT')
+    meta_stats = stock_data_meta['Close'].describe().to_frame('META')
+    nvda_stats = stock_data_nvda['Close'].describe().to_frame('NVDA')
+    tsla_stats = stock_data_tsla['Close'].describe().to_frame('TSLA')
+    combined_stats = pd.concat([aapl_stats, goog_stats,amzn_stats,msft_stats,meta_stats,nvda_stats,tsla_stats], axis=1)
+    return combined_stats
