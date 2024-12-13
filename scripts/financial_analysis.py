@@ -25,3 +25,16 @@ def getSentimentAnalysisOfPublisher(news_data, target_publisher):
     sentiment_counts.plot(kind="bar", figsize=(10, 4), title=f'Sentiment Analysis of {target_publisher}',
                       xlabel='Sentiment categories', ylabel='Number of Published Articles',
                       color=[colors[category] for category in sentiment_counts.index])
+
+
+
+def checkMissingValueOfHistoricalDataset(stock_data_aapl,stock_data_amzn,stock_data_goog,stock_data_meta,stock_data_msft,stock_data_nvda,stock_data_tsla):
+    combined_df = pd.concat([stock_data_aapl.isnull().sum(),
+                            stock_data_goog.isnull().sum(),
+                            stock_data_amzn.isnull().sum(),
+                            stock_data_msft.isnull().sum(),
+                            stock_data_meta.isnull().sum(),
+                            stock_data_nvda.isnull().sum(),
+                            stock_data_tsla.isnull().sum()],
+                            axis=0)
+    combined_df.head()
