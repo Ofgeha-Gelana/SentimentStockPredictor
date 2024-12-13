@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from textblob import TextBlob
-# import talib as tl
+import talib as tl
 
 
 def load_historical_data(ticker):
