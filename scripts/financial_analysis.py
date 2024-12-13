@@ -6,7 +6,7 @@ from textblob import TextBlob
 
 
 def load_historical_data(ticker):
-    stock_data=pd.read_csv(f'../docs/yfinance_data/{ticker}_historical_data.csv')
+    stock_data=pd.read_csv(f'../data/raw/yfinance_data/{ticker}_historical_data.csv')
     return stock_data
 
 
