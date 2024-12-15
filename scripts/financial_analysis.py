@@ -114,3 +114,45 @@ def calculateTechnicalIndicator(stock_data):
     macd_signal, macd, _ = tl.MACD(stock_data['Close'])
     stock_data['MACD'] =macd
     stock_data['MACD_Signal']=macd_signal
+    
+    
+def technicalIndicatorsVsClosingPrice(stock_data_aapl,stock_data_amzn,stock_data_goog,stock_data_meta,stock_data_msft,stock_data_nvda,ticker):
+    fig, axs = plt.subplots(2, 3, figsize=(20, 10))  # Adjust figsize as needed
+
+    axs[0,0].plot(stock_data_aapl['Date'], stock_data_aapl['Close'], label='Closing price',color='green')
+    axs[0,0].plot(stock_data_aapl['Date'], stock_data_aapl[ticker], label=ticker,color='red')
+    axs[0,0].set_title('AAPL')
+    axs[0,0].legend()
+
+    axs[0,1].plot(stock_data_amzn['Date'], stock_data_amzn['Close'], label='Closing price')
+    axs[0,1].plot(stock_data_amzn['Date'], stock_data_amzn[ticker], label=ticker,color='red')
+    axs[0,1].set_title('AMZN')
+    axs[0,1].legend()
+
+
+    axs[0,2].plot(stock_data_goog['Date'], stock_data_goog['Close'], label='Closing price',color='yellow')
+    axs[0,2].plot(stock_data_goog['Date'], stock_data_goog[ticker], label=ticker,color='red')
+    axs[0,2].set_title('GOOG')
+    axs[0,2].legend()
+
+
+    axs[1,0].plot(stock_data_nvda['Date'], stock_data_nvda['Close'], label='Closing price',color='blue')
+    axs[1,0].plot(stock_data_nvda['Date'], stock_data_nvda[ticker], label=ticker,color='red')
+    axs[1,0].set_title('NVDA')
+    axs[1,0].legend()
+    axs[1,0].set_xlabel('Date')
+
+
+    axs[1,1].plot(stock_data_msft['Date'], stock_data_msft['Close'], label='Closing price',color='purple')
+    axs[1,1].plot(stock_data_msft['Date'], stock_data_msft[ticker], label=ticker,color='red')
+    axs[1,1].set_title('MSFT')
+    axs[1,1].legend()
+    axs[1,1].set_xlabel('Date')
+
+    axs[1,2].plot(stock_data_meta['Date'], stock_data_meta['Close'], label='Closing price',color='pink')
+    axs[1,2].plot(stock_data_meta['Date'], stock_data_meta[ticker], label=ticker,color='red')
+    axs[1,2].set_title('META')
+    axs[1,2].legend()
+    axs[1,2].set_xlabel('Date')
+
+    plt.show()
