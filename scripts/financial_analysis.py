@@ -229,7 +229,7 @@ def calculatePortfolioWeightAndPerformance():
 
     tickers =['AAPL','AMZN','GOOG','MSFT','NVDA','META','TSLA']
     # Load data from each ticker file
-    dataframes = [loadHistoricalData(ticker) for ticker in tickers]
+    dataframes = [load_historical_data(ticker) for ticker in tickers]
 
     # Combine dataframes into a single DataFrame
     combined_data = pd.concat(dataframes, axis=1)['Close']
@@ -254,3 +254,74 @@ def calculatePortfolioWeightAndPerformance():
     # Calculate and print portfolio performance
     print("\nPortfolio Performance:")
     ef.portfolio_performance(verbose=True)
+    
+    
+    
+def closingPriceMovingAverageConvergenceDivergence(stock_data_aapl,stock_data_amzn,stock_data_goog,stock_data_meta,stock_data_msft,stock_data_nvda):
+        
+    fig, axs = plt.subplots(6,2, gridspec_kw={"height_ratios": [1, 1, 1, 1,1,1]}, figsize=(16,22))
+
+    # for AAPL
+    axs[0][0].plot(stock_data_aapl['Date'], stock_data_aapl['Close'],label="Close")
+    axs[0][0].set_title("AAPL Stock Price")
+    axs[0][0].legend()
+    axs[1][0].axhline(y=5, color='r',linestyle="--")
+    axs[1][0].axhline(y=-5, color='g',linestyle="--")
+    axs[1][0].plot(stock_data_aapl['Date'],stock_data_aapl['MACD'], color='orange', label="MACD")
+    axs[1][0].plot(stock_data_aapl['Date'],stock_data_aapl['MACD_Signal'], color='r', label="MACD_Signal")
+    axs[1][0].legend()
+
+
+    # for GOOG
+    axs[0][1].plot(stock_data_goog['Date'], stock_data_goog['Close'],label="Close")
+    axs[0][1].set_title("GOOG Stock Price")
+    axs[0][1].legend()
+    axs[1][1].axhline(y=5, color='r',linestyle="--")
+    axs[1][1].axhline(y=-5, color='g',linestyle="--")
+    axs[1][1].plot(stock_data_aapl['Date'],stock_data_aapl['MACD'], color='orange', label="MACD")
+    axs[1][1].plot(stock_data_aapl['Date'],stock_data_aapl['MACD_Signal'], color='r', label="MACD_Signal")
+    axs[1][1].legend()
+
+    # for AMZN
+    axs[2][0].plot(stock_data_amzn['Date'], stock_data_amzn['Close'],label="Close")
+    axs[2][0].set_title("AMZN Stock Price")
+    axs[2][0].legend()
+    axs[3][0].axhline(y=5, color='r',linestyle="--")
+    axs[3][0].axhline(y=-5, color='g',linestyle="--")
+    axs[3][0].plot(stock_data_aapl['Date'],stock_data_aapl['MACD'], color='orange', label="MACD")
+    axs[3][0].plot(stock_data_aapl['Date'],stock_data_aapl['MACD_Signal'], color='r', label="MACD_Signal")
+    axs[3][0].legend()
+
+    # for NVDA
+    axs[2][1].plot(stock_data_nvda['Date'], stock_data_nvda['Close'],label="Close")
+    axs[2][1].set_title("NVDA Stock Price")
+    axs[2][1].legend()
+    axs[3][1].axhline(y=5, color='r',linestyle="--")
+    axs[3][1].axhline(y=-5, color='g',linestyle="--")
+    axs[3][1].plot(stock_data_aapl['Date'],stock_data_aapl['MACD'], color='orange', label="MACD")
+    axs[3][1].plot(stock_data_aapl['Date'],stock_data_aapl['MACD_Signal'], color='r', label="MACD_Signal")
+    axs[3][1].legend()
+
+
+    # for MSFT
+    axs[4][0].plot(stock_data_msft['Date'], stock_data_msft['Close'],label="Close")
+    axs[4][0].set_title("MSFT Stock Price")
+    axs[4][0].legend()
+    axs[5][0].axhline(y=5, color='r',linestyle="--")
+    axs[5][0].axhline(y=-5, color='g',linestyle="--")
+    axs[5][0].plot(stock_data_aapl['Date'],stock_data_aapl['MACD'], color='orange', label="MACD")
+    axs[5][0].plot(stock_data_aapl['Date'],stock_data_aapl['MACD_Signal'], color='r', label="MACD_Signal")
+    axs[5][0].legend()
+
+    # for META
+    axs[4][1].plot(stock_data_meta['Date'], stock_data_meta['Close'],label="Close")
+    axs[4][1].set_title("META Stock Price")
+    axs[4][1].legend()
+    axs[5][1].axhline(y=5, color='r',linestyle="--")
+    axs[5][1].axhline(y=-5, color='g',linestyle="--")
+    axs[5][1].plot(stock_data_aapl['Date'],stock_data_aapl['MACD'], color='orange', label="MACD")
+    axs[5][1].plot(stock_data_aapl['Date'],stock_data_aapl['MACD_Signal'], color='r', label="MACD_Signal")
+    axs[5][1].legend()
+    fig.show()
+    # A MACD crossover (when the signal line crosses the MACD line) can indicate a potential trend change.
+    # In this case both MACD and MACD_Signal have the same value
