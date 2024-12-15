@@ -156,3 +156,67 @@ def technicalIndicatorsVsClosingPrice(stock_data_aapl,stock_data_amzn,stock_data
     axs[1,2].set_xlabel('Date')
 
     plt.show()
+    
+    
+    
+def closingPriceRelativeStrengthIndex(stock_data_aapl,stock_data_amzn,stock_data_goog,stock_data_meta,stock_data_msft,stock_data_nvda):
+    fig, axs = plt.subplots(6,2, gridspec_kw={"height_ratios": [1, 1, 1, 1,1,1]}, figsize=(16,22))
+
+    # For AAPL
+    axs[0][0].plot(stock_data_aapl['Date'], stock_data_aapl['Close'],label="Close")
+    axs[0][0].set_title("AAPL Stock Price")
+    axs[0][0].legend()
+    axs[1][0].axhline(y=70, color='r',linestyle="--")
+    axs[1][0].axhline(y=30, color='g',linestyle="--")
+    axs[1][0].plot(stock_data_aapl['Date'],stock_data_aapl['RSI'], color='orange', label="RSI")
+    axs[1][0].legend()
+
+    # for GOOG
+    axs[0][1].plot(stock_data_goog['Date'], stock_data_goog['Close'],label="Close")
+    axs[0][1].set_title("GOOG Stock Price")
+    axs[0][1].legend()
+    axs[1][1].axhline(y=70, color='r',linestyle="--")
+    axs[1][1].axhline(y=30, color='g',linestyle="--")
+    axs[1][1].plot(stock_data_goog['Date'],stock_data_goog['RSI'], color='orange', label="RSI")
+    axs[1][1].legend()
+
+    # for AMZN
+    axs[2][0].plot(stock_data_amzn['Date'], stock_data_amzn['Close'],label="Close")
+    axs[2][0].set_title("AMZN Stock Price")
+    axs[2][0].legend()
+    axs[3][0].axhline(y=70, color='r',linestyle="--")
+    axs[3][0].axhline(y=30, color='g',linestyle="--")
+    axs[3][0].plot(stock_data_amzn['Date'],stock_data_amzn['RSI'], color='orange', label="RSI")
+    axs[3][0].legend()
+
+    # for NVDA
+    axs[2][1].plot(stock_data_nvda['Date'], stock_data_nvda['Close'],label="Close")
+    axs[2][1].set_title("NVDA Stock Price")
+    axs[2][1].legend()
+    axs[3][1].axhline(y=70, color='r',linestyle="--")
+    axs[3][1].axhline(y=30, color='g',linestyle="--")
+    axs[3][1].plot(stock_data_nvda['Date'],stock_data_nvda['RSI'], color='orange', label="RSI")
+    axs[3][1].legend()
+
+
+    # for MSFT
+    axs[4][0].plot(stock_data_msft['Date'], stock_data_msft['Close'],label="Close")
+    axs[4][0].set_title("MSFT Stock Price")
+    axs[4][0].legend()
+    axs[5][0].axhline(y=70, color='r',linestyle="--")
+    axs[5][0].axhline(y=30, color='g',linestyle="--")
+    axs[5][0].plot(stock_data_msft['Date'],stock_data_msft['RSI'], color='orange', label="RSI")
+    axs[5][0].legend()
+
+    # for META
+    axs[4][1].plot(stock_data_meta['Date'], stock_data_meta['Close'],label="Close")
+    axs[4][1].set_title("META Stock Price")
+    axs[4][1].legend()
+    axs[5][1].axhline(y=70, color='r',linestyle="--")
+    axs[5][1].axhline(y=30, color='g',linestyle="--")
+    axs[5][1].plot(stock_data_meta['Date'],stock_data_meta['RSI'], color='orange', label="RSI")
+    axs[5][1].legend()
+    fig.show()
+    # momentum oscillator that measures the speed and change of price movements.
+    # Identifying overbought and oversold conditions. A reading above 70 is typically 
+    # considered overbought, while a reading below 30 is considered oversold.
