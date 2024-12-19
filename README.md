@@ -1,5 +1,7 @@
 # Analyzing Financial News and Stock Prices
 
+![Publishing Time Analysis](https://raw.githubusercontent.com/Ofgeha-Gelana/SentimentStockPredictor/refs/heads/main/src/banner.png)
+
 ## Overview
 This project aims to analyze financial news data and its correlation with stock price movements. By combining sentiment analysis, technical analysis, and correlation analysis.
 
